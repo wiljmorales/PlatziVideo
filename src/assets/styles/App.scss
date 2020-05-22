@@ -1,11 +1,9 @@
 body{
-  margin: 0;
-  background-color: darkslategrey;
+  font-family: 'Muli', sans-serif;
+  margin:0px;
+  background-color:#8f57fd ;
 }
 
-h1 {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  color:darkgrey; 
+* {
+box-sizing: border-box;
 }
