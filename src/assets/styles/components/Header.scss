@@ -6,6 +6,10 @@
   justify-content: space-between;
   align-items: center;
 }
+.isLoginHeader, .isRegisterHeader{
+  background-color: #21C08B;
+}
+
 .header__img{
   width: 200px;
   margin-top: 10px;
@@ -44,6 +48,8 @@
   margin-right: 8px;
   width: 40px;
   height: 40px;
+  border-radius: 100%;
+  object-fit: cover;
 }
 .header__menu--profile p{
   margin: 0px;

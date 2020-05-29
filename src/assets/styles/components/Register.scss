@@ -11,8 +11,6 @@
   border-radius: 40px;
   color: white;
   padding: 60px 68px 40px;
-  min-height: 700px;
-  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -40,7 +38,7 @@
 .registro__container--iniciar-secion a:hover{
   text-decoration: underline;
 }
-.registro__container--form >.input{
+.registro__container--form .input{
   background-color: transparent;
   border-top: 0px;
   border-right: 0px;
@@ -56,17 +54,4 @@
 }
 ::placeholder{
   color: white;
-}
-.button{
-  background-color: rgba(255, 255, 255, .1);
-  border: none;
-  border-radius: 25px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: 'Muli', sans-serif;
-  height: 50px;
-  letter-spacing: 1px;
-  margin: 10px 0px;
 }

@@ -1,34 +1,50 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setFavorite } from '../actions';
+import { Link } from 'react-router-dom';
+import { setFavorite, deleteFavorite } from '../actions';
 import '../assets/styles/components/CarouselItem.scss';
 import playIcon from '../assets/imgs/icons8-play-64.png';
 import plusIcon from '../assets/imgs/icons8-más-64.png';
+import removeIcon from '../assets/imgs/icons8-menos-64.png';
 
 const CarouselItem = (props) => {
-  const { cover, title, year, contentRating, duration } = props;
+  const { id, cover, title, year, contentRating, duration, isList } = props;
   const handelSetFavorite = () => {
     props.setFavorite({
-      cover, title, year, contentRating, duration,
+      id, cover, title, year, contentRating, duration,
     });
+  };
+  const handelDeleteFavorite = (itemId) => {
+    props.deleteFavorite(itemId);
   };
   return (
     <div className='carousel-item'>
       <img className='carousel-item__img' src={cover} alt={title} />
       <div className='carousel-item__details'>
         <div>
-          <img
-            className='carousel-item__details--icon'
-            src={playIcon}
-            alt=''
-          />
-          <img
-            className='carousel-item__details--icon'
-            src={plusIcon}
-            alt=''
-            onClick={handelSetFavorite}
-          />
+          <Link to={`/player/${id}`}>
+            <img
+              className='carousel-item__details--icon'
+              src={playIcon}
+              alt=''
+            />
+          </Link>
+          {isList ? (
+            <img
+              className='carousel-item__details--icon'
+              src={removeIcon}
+              alt=''
+              onClick={() => handelDeleteFavorite(id)}
+            />
+          ) : (
+            <img
+              className='carousel-item__details--icon'
+              src={plusIcon}
+              alt=''
+              onClick={handelSetFavorite}
+            />
+          )}
         </div>
         <p className='carousel-item__details--title'>{title}</p>
         <p className='carousel-item__details--subtitle'>{`${year} ${contentRating} ${duration} min`}</p>
@@ -47,6 +63,7 @@ CarouselItem.propTypes = {
 
 const mapDispatchToProps = {
   setFavorite,
+  deleteFavorite,
 };
 
 export default connect(null, mapDispatchToProps)(CarouselItem);
