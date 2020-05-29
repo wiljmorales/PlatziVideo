@@ -32,6 +32,19 @@ const reducer = (state, action) => {
         state.originals.find((item) => item.id === Number(action.payload)) ||
         [],
       };
+    case 'SEARCH_VIDEO':
+      if (action.payload.trim() === '') {
+        return {
+          ...state,
+          search: [],
+        };
+      }
+      // eslint-disable-next-line no-case-declarations
+      const listas = [...state.trends, ...state.originals];
+      return {
+        ...state,
+        search: listas.filter((item) => item.title.toLowerCase().includes(action.payload)),
+      };
     default:
       return state;
   };

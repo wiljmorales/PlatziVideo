@@ -9,10 +9,11 @@ import logo from '../assets/imgs/logo-platzi-video-BW2.png';
 import userIcon from '../assets/imgs/icons8-usuario-círculo-64.png';
 
 const Header = (props) => {
-  const { user, isLoginHeader, isRegisterHeader } = props;
+  const { user, isLoginHeader, isRegisterHeader, notFoundHeader } = props;
   const headerStyle = classNames('header', {
     isLoginHeader,
     isRegisterHeader,
+    notFoundHeader,
   });
   const hasUser = Object.keys(user).length > 0;
   const handelLogout = () => {

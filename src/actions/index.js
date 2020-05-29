@@ -40,3 +40,10 @@ export const getVideoSource = (payload) => (
     payload,
   }
 );
+
+export const searchVideo = (payload) => (
+  {
+    type: 'SEARCH_VIDEO',
+    payload,
+  }
+);

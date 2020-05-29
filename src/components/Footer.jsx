@@ -3,10 +3,11 @@ import classNames from 'classnames';
 import '../assets/styles/components/Footer.scss';
 
 const Footer = (props) => {
-  const { isLogin, isRegister } = props;
+  const { isLogin, isRegister, notFound } = props;
   const footerStyle = classNames('footer', {
     isLogin,
     isRegister,
+    notFound,
   });
 
   return (
